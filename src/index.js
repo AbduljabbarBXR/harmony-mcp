@@ -7,10 +7,8 @@ import { existsSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { execSync } from "node:child_process";
 
-const server = new McpServer({
-  name: "harmony-mcp",
-  version: "0.1.0",
-});
+const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+const server = new McpServer({ name: pkg.name, version: pkg.version });
 
 const BUILTIN_RULES = [
   {
@@ -127,10 +125,11 @@ function parseDiff(diff) {
 function gitDiff(repoPath) {
   const cwd = resolve(repoPath || ".");
   try {
-    return execSync("git diff --unified=0 HEAD -- . 2>/dev/null || git diff --cached --unified=0", {
+    return execSync("git diff --unified=0 HEAD -- . 2>/dev/null || git diff --unified=0 2>/dev/null", {
       cwd,
       encoding: "utf8",
       maxBuffer: 64 * 1024 * 1024,
+      stdio: ["ignore", "pipe", "ignore"],
     });
   } catch {
     return "";
