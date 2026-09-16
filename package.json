@@ -1,6 +1,6 @@
 {
   "name": "harmony-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Repo rules enforcement for AI agents. Checks diffs against AGENTS.md conventions and custom policy, and blocks violations before they land.",
   "type": "module",
   "main": "src/index.js",
