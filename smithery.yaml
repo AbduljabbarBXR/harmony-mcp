@@ -1,0 +1,12 @@
+name: harmony-mcp
+description: Repo rules enforcement for AI agents. Checks diffs against AGENTS.md conventions and custom policy, and blocks violations before they land.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'harmony-mcp']
+    })
