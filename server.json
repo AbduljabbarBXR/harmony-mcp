@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.abduljabbarbxr/harmony-mcp",
+  "title": "harmony-mcp",
+  "description": "Repo rules enforcement for AI agents. Checks diffs against AGENTS.md conventions and custom policy before changes land.",
+  "version": "0.1.4",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "harmony-mcp",
+      "version": "0.1.4",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
