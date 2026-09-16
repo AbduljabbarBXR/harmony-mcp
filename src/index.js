@@ -54,14 +54,23 @@ function loadCustomRules(root) {
     const parsed = JSON.parse(readFileSync(rulesFile, "utf8"));
     const rules = Array.isArray(parsed) ? parsed : parsed.rules;
     if (!Array.isArray(rules)) return [];
-    return rules.map((r) => ({
-      id: String(r.id || "custom-rule"),
-      description: String(r.description || r.message || "Custom rule"),
-      regex: String(r.regex),
-      message: String(r.message || "Violates a custom repo rule"),
-      severity: r.severity || "warning",
-      files: Array.isArray(r.files) && r.files.length ? r.files : ["**/*"],
-    }));
+    return rules
+      .map((r) => ({
+        id: String(r.id || "custom-rule"),
+        description: String(r.description || r.message || "Custom rule"),
+        regex: String(r.regex),
+        message: String(r.message || "Violates a custom repo rule"),
+        severity: r.severity || "warning",
+        files: Array.isArray(r.files) && r.files.length ? r.files : ["**/*"],
+      }))
+      .filter((r) => {
+        try {
+          new RegExp(r.regex);
+          return true;
+        } catch {
+          return false;
+        }
+      });
   } catch {
     return [];
   }
@@ -131,7 +140,12 @@ function gitDiff(repoPath) {
 function checkLines(changed, rules, root) {
   const findings = [];
   for (const rule of rules) {
-    const re = new RegExp(rule.regex);
+    let re;
+    try {
+      re = new RegExp(rule.regex);
+    } catch {
+      continue;
+    }
     const files = rule.files && rule.files.length ? rule.files : ["**/*"];
     for (const line of changed) {
       if (!files.some((p) => matchesFile(p, line.file))) continue;
