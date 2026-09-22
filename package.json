@@ -1,6 +1,6 @@
 {
   "name": "harmony-mcp",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Repo rules enforcement for AI agents. Checks diffs against AGENTS.md conventions and custom policy, and blocks violations before they land.",
   "type": "module",
   "main": "src/index.js",
@@ -27,5 +27,14 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0"
   },
-  "mcpName": "io.github.AbduljabbarBXR/harmony-mcp"
+  "mcpName": "io.github.AbduljabbarBXR/harmony-mcp",
+  "author": "AbduljabbarBXR",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbduljabbarBXR/harmony-mcp.git"
+  },
+  "homepage": "https://tawakkul-labs.co.ke",
+  "bugs": {
+    "url": "https://github.com/AbduljabbarBXR/harmony-mcp/issues"
+  }
 }

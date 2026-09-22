@@ -1,5 +1,7 @@
 # harmony-mcp
 
+[![npm](https://img.shields.io/npm/v/harmony-mcp)](https://www.npmjs.com/package/harmony-mcp) [![license](https://img.shields.io/npm/l/harmony-mcp)](LICENSE) [![MCP](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io) [![Tawakkul Labs](https://img.shields.io/badge/by-Tawakkul%20Labs-0f766e)](https://tawakkul-labs.co.ke)
+
 Repo rules enforcement for AI agents. Harmony checks diffs against the repository rule set and returns findings before a change lands. It gives an agent the same guard rails a senior reviewer would: no trailing whitespace, no debug leftovers, no committed secrets, and any custom policy the repo declares.
 
 Built as an MCP server, so it works in any platform that speaks Model Context Protocol: CLI agents, Cursor style editors, VS Code extensions, Kilo, and terminals.
@@ -90,3 +92,7 @@ npm install -g harmony-mcp
 ## License
 
 MIT. Part of the Tawakkul Labs open source family alongside HEIDES, Heides Lens, Cornea, and HEIDES VOLT.
+
+---
+
+Links: [npm](https://www.npmjs.com/package/harmony-mcp) | [GitHub](https://github.com/AbduljabbarBXR/harmony-mcp) | [Tawakkul Labs](https://tawakkul-labs.co.ke)
